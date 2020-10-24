@@ -8,6 +8,6 @@
 ## to decrypt file :
 (filename) --action decrypt --keyfile (hiddenkey) 
 
-//my revenge against peter
+
 
 # YOU'RE WELCOME
